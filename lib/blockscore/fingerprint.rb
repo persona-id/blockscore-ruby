@@ -7,9 +7,7 @@ module BlockScore
 
     def data
       @data ||= begin
-        if watchlist_search?
-          body.fetch(:matches)
-        elsif resource_index?
+        if resource_index?
           body.fetch(:data)
         else
           body
@@ -18,7 +16,9 @@ module BlockScore
     end
 
     def resource
-      if watchlist_search? || watchlist_hits?
+      if watchlist_search?
+        'watchlist_search'
+      elsif watchlist_hits?
         'watchlist_hit'
       else
         @resource
@@ -40,7 +40,7 @@ module BlockScore
     end
 
     def list_object?
-      body.fetch(:object).eql?('list')
+      body[:object].eql?('list')
     end
 
     def watchlist_hits?

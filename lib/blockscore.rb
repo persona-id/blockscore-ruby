@@ -28,6 +28,7 @@ require 'blockscore/company'
 require 'blockscore/person'
 require 'blockscore/question_set'
 require 'blockscore/watchlist_hit'
+require 'blockscore/watchlist_search'
 
 require 'blockscore/collection'
 require 'blockscore/collection/member'
