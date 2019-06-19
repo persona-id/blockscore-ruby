@@ -15,7 +15,7 @@ module BlockScore
     def initialize(options = {}, &block)
       @loaded     = !block
       @proc       = block
-      @attributes = options
+      @attributes = options.transform_keys { |key| key.to_sym rescue key }
     end
 
     def attributes
